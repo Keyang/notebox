@@ -3,8 +3,8 @@ Note box is a sqlite3 based database application which allows people create / se
 under command line. It has following features:
 
 * Completely Offline. 
-* Any data acceptable including binary or files
-* Password protection: AES256 encryption
+* Any data type is acceptable including binary or files
+* Optional password protection: AES256 encryption
 * No overhead. Just drop in notes
 * pipe in and pipe out
 * Note search / full text search / tag based search
@@ -98,10 +98,24 @@ extract password protected file
 nb s --title mypic.png -p -o raw >mypic.png
 ```
 
+## Update
+
+Use $EDITOR to change note data
+
+```
+nb u <id> --data
+```
+
 ## Others
 
 Shrink DB file
 
 ```
 nb sql "vacuum;"
+```
+
+#More
+see 
+```
+nb help
 ```
