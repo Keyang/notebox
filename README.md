@@ -72,6 +72,12 @@ or by id
 nb s --id <id>
 ```
 
+list all data stored
+
+```
+nb s
+```
+
 remove all found items (find and remove)
 
 ```
