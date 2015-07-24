@@ -1,4 +1,5 @@
 CREATE TABLE IF NOT EXISTS note (
+  rowid INTEGER PRIMARY KEY,
   data BLOB,
   ispassword INTEGER,
   created INTEGER,
@@ -7,6 +8,7 @@ CREATE TABLE IF NOT EXISTS note (
 );
 
 CREATE TABLE IF NOT EXISTS tag(
+  rowid INTEGER PRIMARY KEY,
   name TEXT
 );
 CREATE TABLE IF NOT EXISTS note_tag(
@@ -14,6 +16,7 @@ CREATE TABLE IF NOT EXISTS note_tag(
   tag_id INTEGER
 );
 CREATE TABLE IF NOT EXISTS config(
+  rowid INTEGER PRIMARY KEY,
   config TEXT
 );
 

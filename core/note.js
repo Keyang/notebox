@@ -73,7 +73,7 @@ function genQues(num) {
   return rtn;
 }
 
-function searchText(db, txt, tags, cb) {
+function searchText(db, txt, tags, cb, limit) {
   var rtn = [];
   if (typeof cb === "undefined") {
     cb = tags;
@@ -85,7 +85,17 @@ function searchText(db, txt, tags, cb) {
   if (!txt) {
     txt = "";
   }
-  var sql = "SELECT note.rowid, note.* FROM note " +
+  var limitLen=512;
+  var sql = "SELECT note.rowid, note.ispassword, note.created,note.isblob,note.title, ";
+  if (limit){
+    sql+=" case when isblob is 1 then ''"
+    sql+=" when length(note.data)>"+limitLen+" "+
+    "then substr(note.data,0,"+limitLen+") || '"+require("os").EOL+"(more...)' else "+
+    "note.data end as data "
+  }else{
+    sql+="note.data "
+  }
+  sql+=" FROM note " +
     "WHERE 1=1 "
   if (txt) {
     sql += " AND ((note.isblob is not 1 AND " +

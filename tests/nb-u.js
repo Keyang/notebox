@@ -19,7 +19,7 @@ describe("CLI: update note", function() {
   });
   it("should update a note attributes", function(done) {
     cli(["n", "-d", dbFile, "-t", "tt,mm", "hello world"], function(buf) {
-      cli(["u", "1","-d", dbFile, "-t", "ss,dd,mm", "--title", "hi notebox"], function(buf) {
+      cli(["u", "1","-d", dbFile, "-t", "ss,dd,mm", "--title", "hi notebox","--nodata"], function(buf) {
         var c = cli(["s", "-d", dbFile, "notebox"], function(data) {
           assert(data.indexOf("hello") > -1);
           assert(data.indexOf("tt") === -1);

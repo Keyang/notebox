@@ -1,13 +1,13 @@
 # Note Box
-Note box is a sqlite3 based database application which allows people create / search notes
-under command line. It has following features:
+Note box is a sqlite3 based Node.JS application which helps taking notes
+in command line. It has following features:
 
-* Completely Offline. 
-* Any data type is acceptable including binary or files
-* Optional password protection: AES256 encryption
-* No overhead. Just drop in notes
-* pipe in and pipe out
-* Note search / full text search / tag based search
+* Completely Offline.
+* Note tags.
+* Password protection: AES256 encryption
+* Simple Commands
+* PIPE and Stream Support
+* full text search / tag based search
 * Single db file. easy to backup and migrate.
 
 ## Installation
@@ -22,20 +22,20 @@ npm install -g notebox
 nb n "this is my note"
 ```
 
-Input multiple line
+Multiple line note
 
 ```
 nb n
 ```
 
-Input from a file
+Stream data from a file
 
 ```
 nb n < myfile
 
 ```
 
-Set tags (separate by comma)
+Set tags (separated by comma)
 
 ```
 nb n -t tag1,tag2,tag3 "Hell world"
@@ -59,6 +59,8 @@ nb -n "my data " -p
 
 ## Search note
 
+Simple text match
+
 ```
 nb s "word or phrase"
 ```
@@ -74,7 +76,7 @@ or by id
 nb s --id <id>
 ```
 
-list all data stored
+list all note
 
 ```
 nb s
@@ -83,28 +85,37 @@ nb s
 remove all found items (find and remove)
 
 ```
-nb s --delete
+nb s -t personal_tag --delete
 ```
 
 extract stored file
 
 ```
-nb s --title mypdf.pdf -o raw > mypdf.pdf
+nb s mypdf.pdf -o raw > mypdf.pdf
 ```
 
-extract password protected file
+export a password protected file
 
 ```
-nb s --title mypic.png -p -o raw >mypic.png
+nb s mypic.png -p -o raw >mypic.png
 ```
 
 ## Update
 
-Use $EDITOR to change note data
+Use $EDITOR to change note data.
 
 ```
-nb u <id> --data
+nb u <id>
 ```
+Update password
+
+```
+nb u <id> -p
+```
+
+## Note Editor
+Change $EDITOR env var to the path of your editor so that you can create note,
+update note using the editor.
 
 ## Others
 
@@ -113,9 +124,20 @@ Shrink DB file
 ```
 nb sql "vacuum;"
 ```
+Use different db file
+```
+db n -d <dbFile Path>
+```
 
-#More
-see 
+##More
+see
 ```
 nb help
 ```
+
+#Encrypted Database
+By default, sqlite database is not encrypted. Although password protected notes are aes256 encrypted, it is nice to have whole database file encrypted.
+To do this, once notebox is installed, goto the installation folder and re-build / configure node-sqlite in node_modules folder.
+
+Here is how:
+https://github.com/mapbox/node-sqlite3#building-for-sqlcipher

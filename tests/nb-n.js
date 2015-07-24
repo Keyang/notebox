@@ -30,9 +30,10 @@ describe("CLI: New note", function() {
   it("should create new note from stream", function(done) {
     var c = cli(["n", "-d", dbFile, "-t", "taga,tagb"], function() {
       note.searchText(d, "another", function(err, notes) {
+        // console.log(notes);
         assert(!err);
         assert(notes.length === 1);
-        assert(notes[0].data === "another hello world");
+        assert(notes[0].data.toString() === "another hello world");
         done();
       })
     });

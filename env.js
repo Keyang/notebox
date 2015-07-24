@@ -23,5 +23,6 @@ function set(key,val){
 }
 function home(){
   //TODO add windows support
-  return process.env["HOME"];
+  var home=process.env["HOME"]?process.env["HOME"]:process.env["USERPROFILE"];
+  return home;
 }

@@ -11,6 +11,7 @@ cli
   .option("--delete", "Remove all found notes.")
   .option("-o, --output <outputType>", "Output format. It could be: table(default), raw, csv. ")
   .option("-p, --password [password]", "Attempt to decrypt all data with password")
+  .option("-f --full","Do not truncate long data. Always return full data from db.")
   .parse(process.argv);
 
 
@@ -53,7 +54,7 @@ require("./comm").initDb(cli.db, function() {
         } else {
           opFunc(prepareOutput(res), cli);
         }
-      })
+      },!!!cli.full);
     }
   } catch (e) {
     log.error(e);
@@ -65,7 +66,7 @@ require("./comm").initDb(cli.db, function() {
   function prepareOutput(arr) {
     var rtn = [];
     arr.forEach(function(item) {
-      if (item.ispassword) {
+      if (item.ispassword && pwd) {
         try {
           item.data = aes.decrypt(item.data, pwd);
           item.ispassword = false;
