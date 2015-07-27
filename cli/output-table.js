@@ -46,7 +46,7 @@ module.exports = function(data, options) {
       d += "Create Date: ".gray.bold;
       d += new Date(item.created).toISOString();
       d += eol+ "Note: "+ eol;
-      d += item.ispassword ? "(encrypted)" : item.isblob ? "(binary data)" : item.data ? item.data.toString().white.bold : ""
+      d += item.ispassword ? "(encrypted)" : item.isblob ? "(binary data)" : item.data ? item.data.toString().trim().white.bold : ""
       var curD = [
         d
       ];
