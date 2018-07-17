@@ -1,10 +1,10 @@
 {
   "name": "notebox",
   "description": "powerful command line based note taking app.",
-  "version": "1.1.6",
-  "author":"Keyang Xiang <keyang.xiang@gmail.com>",
-  "bugs":"https://github.com/Keyang/notebox/issues",
-  "homepage":"https://github.com/Keyang/notebox",
+  "version": "1.1.7",
+  "author": "Keyang Xiang <keyang.xiang@gmail.com>",
+  "bugs": "https://github.com/Keyang/notebox/issues",
+  "homepage": "https://github.com/Keyang/notebox",
   "keywords": [
     "note taking",
     "note",
@@ -18,14 +18,18 @@
     "type": "git",
     "url": "https://github.com/Keyang/notebox.git"
   },
-  "contributors": [{
-    "name": "Keyang Xiang",
-    "email": "keyang.xiang@gmail.com"
-  }],
-  "license": [{
-    "type": "MIT",
-    "url": "https://github.com/Keyang/notebox/blob/master/LICENSE"
-  }],
+  "contributors": [
+    {
+      "name": "Keyang Xiang",
+      "email": "keyang.xiang@gmail.com"
+    }
+  ],
+  "license": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Keyang/notebox/blob/master/LICENSE"
+    }
+  ],
   "engines": {
     "node": ">=0.10"
   },
@@ -35,7 +39,7 @@
     "colors": "^1.1.2",
     "commander": "^2.8.1",
     "readline-sync": "^1.2.19",
-    "sqlite3": "^3.0.9",
+    "sqlite3": "^3.1.4",
     "temp": "^0.8.3",
     "winston": "^1.0.1"
   },
