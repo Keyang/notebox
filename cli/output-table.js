@@ -1,5 +1,5 @@
 module.exports = function(data, options) {
-  var Table = require('cli-table2');
+  var Table = require('cli-table3');
   var log = require("../log");
   var colNum = process.stdout.columns - 10;
   if (isNaN(colNum) || colNum < 0) {
