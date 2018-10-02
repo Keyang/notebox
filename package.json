@@ -39,7 +39,7 @@
     "colors": "^1.1.2",
     "commander": "^2.8.1",
     "readline-sync": "^1.2.19",
-    "sqlite3": "^3.1.4",
+    "sqlite3": "^4.0.2",
     "temp": "^0.8.3",
     "winston": "^1.0.1"
   },
